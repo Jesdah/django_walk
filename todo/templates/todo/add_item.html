@@ -7,14 +7,15 @@
 </head>
 <body>
     <h1>Things I need to do.</h1>
-    <tabel>
-    {% for item in items %}
-        <tr>
-            <td>{{ item.name }}</td>
-            <td>{{ item.done }}</td>
-        </tr>
-    {% end for %}
-    </tabel>
-<a href="/add">Add an item</a>
+    <form method="POST" action="add">
+        {% csrf_token %}
+        {{ form }}
+        <div>
+            <p>
+            <button type="submit">Add Item</button>
+            </p>
+        </div>
+    </form>
+    
 </body>
 </html>
